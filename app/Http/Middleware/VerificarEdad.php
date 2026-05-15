@@ -7,15 +7,18 @@ use Illuminate\Http\Request;
 
 class VerificarEdad
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
-     */
-    public function handle(Request $request, Closure $next)
-    {
-        return $next($request);
+    public function personas(){
+        $user = User::all();
+
+        $personas = 0;
+        foreach($users as $user){
+            if ($user->birthday>10){
+                $personas++;
+            }
+        }
+        if($personas>10){
+          return('Hay $personas mayores de 10 años');  
+        }
+        return('No hay más de 10 personas con más de 10 años');
     }
 }
