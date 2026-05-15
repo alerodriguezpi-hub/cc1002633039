@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 use App\Http\Controllers\UserController;
 
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users', [UserController::class, 'index'])->name('users.index')->Middleware('VerificarEdad');
 Route::post('/users', [UserController::class, 'store'])->name('users.store');
 Route::get('/users_edit/{id}', [UserController::class, 'edit'])->name('users.edit');
 Route::put('/users_update/{id}', [UserController::class, 'update'])->name('users.update');
