@@ -17,8 +17,8 @@ class VerificarEdad
             }
         }
         if($personas>10){
-          return('Hay $personas mayores de 10 años');  
+          return('Hay $personas, mayores de 10 años');  
         }
-        return('No hay más de 10 personas con más de 10 años');
+        return $next($request);
     }
 }
